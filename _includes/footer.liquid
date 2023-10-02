@@ -4,24 +4,24 @@
     <section>
       {% assign latestRelease = site.github.releases[0] %}
 
-      <h3>Version {{ latestRelease.tag_name }}{% if latestRelease.prerelease == true %} (pre-release){% endif %}</h3>
-      <p>Published <a href="{{ latestRelease.html_url }}">{{ latestRelease.published_at | date_to_long_string }} on GitHub</a></p>
+      <h3>版本 {{ latestRelease.tag_name }}{% if latestRelease.prerelease == true %} (預先發行){% endif %}</h3>
+      <p>發表於 <a href="{{ latestRelease.html_url }}">{{ latestRelease.published_at | date_to_long_string }} GitHub</a></p>
       <p>{{ latestRelease.name }}</p>
 
       <ul>
         {% for asset in latestRelease.assets %}
           <li>
-            <a href="{{ asset.browser_download_url }}" download><code>{{ asset.name }}</code></a>
+            <a href="{{ asset.browser_download_url }}" 下載><code>{{ asset.name }}</code></a>
           </li>
         {% endfor %}
         <li>
-            <a href="{{ site.github.repository_url }}/releases">All releases</a>
+            <a href="{{ site.github.repository_url }}/releases">所有發行版</a>
         </li>
         <li>
-          Source archive in 
-          <a href="{{ latestRelease.zipball_url }}" download><code>.zip</code></a>
-          or
-          <a href="{{ latestRelease.tarball_url }}" download><code>.tar.gz</code></a>
+          原始碼封存格式
+          <a href="{{ latestRelease.zipball_url }}" 下載><code>.zip</code></a>
+          或是
+          <a href="{{ latestRelease.tarball_url }}" 下載><code>.tar.gz</code></a>
         </li>
       </ul>
       {% if site.include_badges %}
@@ -36,12 +36,12 @@
   <!-- GitHub repository information -->
   {% if site.github %}
     <section>
-      <h3>This site on GitHub</h3>
-      <p>This site was last published {{ site.time | date_to_long_string }} from the <a href="{{ site.github.repository_url }}">{{ site.github.repository_nwo }}</a> repository on GitHub.</p>
+      <h3>本站在 GitHub 的頁面</h3>
+      <p>本站最近一次是在 {{ site.time | date_to_long_string }} 根據 GitHub <a href="{{ site.github.repository_url }}">{{ site.github.repository_nwo }}</a> 的儲存庫版本發表。</p>
 
       <form id="search-repository" action="{{ site.github.repository_url }}/search" method="GET">
-        <input name="q" type="text" placeholder="Search source on GitHub">
-        <button type="Submit">{% include github-search.svg %} Search</button>
+        <input name="q" type="text" placeholder="搜尋 GitHub 的原始碼">
+        <button type="Submit">{% include github-search.svg %} 搜尋</button>
       </form>
 
     </section>
@@ -50,9 +50,9 @@
   <!-- License information -->
   {% if site.license or site.github.license %}
     <section>
-      <h3>Copyright and license</h3>
+      <h3>著作權與授權</h3>
       <p>
-        © {{ site.time | date: '%Y' }} 
+        © {{ site.time | date: '%Y' }}
         {% for static_file in site.static_files %}
           {% if static_file.path == '/AUTHORS.md' %}
               {% assign authors_file = true %}
@@ -62,7 +62,7 @@
           {{ site.copyright | default: 'Foundation for Public Code' }}
         </a>{% endif %}
         {% if authors_file %}<a href="{{ site.baseurl }}/AUTHORS.html">
-          {{ site.copyright | default: ' The Authors' }}
+          {{ site.copyright | default: ' 作者群' }}
         </a>{% endif %}
       </p>
       <p>
